@@ -98,17 +98,17 @@ class MemoryTask(BaseTask):
         file_dir, _ = os.path.split(os.path.realpath(__file__))
 
         self.hyper = {
-            'n_participants':		    5,
-            'output_dir':  			    file_dir + '/output/',
-            'inference_budget':		    100,
-			'corati_budget':		    100,
-            'model_selection_budget':   1000,
-            'verification_budget':      1000,
-			'max_design_iterations':    5,
-			'num_design_models':	    10,
-			'init_design_samples': 	    10,
-			'design_batch_size': 	    1,
-			'n_prediction_trials': 	    1,
+            'n_participants': 3,                 # ↓ reduces number of individuals simulated
+            'output_dir': file_dir + '/output/',
+            'inference_budget': 50,             # ↓ fewer posterior samples = faster
+            'corati_budget': 50,                # ↓ reduce optimization runs
+            'model_selection_budget': 300,      # ↓ lighter model selection
+            'verification_budget': 300,         # ↓ faster verification
+            'max_design_iterations': 3,         # ↓ fewer loops = faster finish
+            'num_design_models': 5,             # ↓ faster model comparison
+            'init_design_samples': 5,           # ↓ less initial data generation
+            'design_batch_size': 1,             
+            'n_prediction_trials': 1,           
             'mat_file_name':            'sp',
             'random_design':            False,
             'true_likelihood':          False,
